@@ -32,3 +32,8 @@ def update(*,
            product_request: ProductRequestData):
     product = application.product.update_product(db, id=id, product_request=product_request)
     return ProductResponseData(id=product.id, name=product.name, price=product.price)
+
+
+@router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete(*, db: Session = Depends(get_db), id: int):
+    application.product.delete_product(db, id=id)

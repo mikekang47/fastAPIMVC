@@ -23,5 +23,8 @@ class ProductApplication:
         product.update_product(product_request.name, product_request.price)
         return product_repository.product.save(db, product)
 
+    def delete_product(self, db: Session, *, id: int):
+        product_repository.product.delete_by_id(db, id=id)
+
 
 product = ProductApplication()

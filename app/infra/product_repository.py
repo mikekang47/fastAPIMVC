@@ -25,5 +25,8 @@ class ProductRepository:
             .limit(limit) \
             .all()
 
+    def delete_by_id(self, db: Session, *, id: int):
+        db.query(Product).where(Product.id == id).delete()
+
 
 product = ProductRepository()
