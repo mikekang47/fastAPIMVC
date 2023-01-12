@@ -8,3 +8,8 @@ class Product(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(255), nullable=False)
     price = Column(Integer, nullable=False, default=0)
+
+    def update_product(self, name: str, price: int):
+        self.name = name
+        self.price = price
+
